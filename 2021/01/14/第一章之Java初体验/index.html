@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>第一章之Java初体验 | 阔阔的小窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java初学 java初学之jdk，jre配置，eclipse下载与使用，java历史与机制简析，java基础语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章之Java初体验">
+<meta property="og:url" content="http://example.com/2021/01/14/%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%B9%8BJava%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
+<meta property="og:site_name" content="阔阔的小窝">
+<meta property="og:description" content="Java初学 java初学之jdk，jre配置，eclipse下载与使用，java历史与机制简析，java基础语法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114003630319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114005951395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010050438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202101140102021.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010336696.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010415935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010455265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010524798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202101140106032.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010642611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010703708.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010725718.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114010819430.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202101140108556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021011401093587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011000780.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011026687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011057856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011146920.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011256892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011329503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011357312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011422525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011441956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011459460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011533190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210114011551923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2021-01-14T14:03:47.000Z">
+<meta property="article:modified_time" content="2021-01-14T14:04:47.882Z">
+<meta property="article:author" content="阔阔">
+<meta property="article:tag" content="free">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210114003630319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+  
+    <link rel="alternate" href="/atom.xml" title="阔阔的小窝" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">阔阔的小窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">记录编程学习之路</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第一章之Java初体验" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/14/%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%B9%8BJava%E5%88%9D%E4%BD%93%E9%AA%8C/" class="article-date">
+  <time class="dt-published" datetime="2021-01-14T14:03:47.000Z" itemprop="datePublished">2021-01-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      第一章之Java初体验
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java初学"><a href="#Java初学" class="headerlink" title="Java初学"></a>Java初学</h1><blockquote>
+<p>java初学之jdk，jre配置，eclipse下载与使用，java历史与机制简析，java基础语法</p>
+<a id="more"></a>
+</blockquote>
+<h2 id="java发展史："><a href="#java发展史：" class="headerlink" title="java发展史："></a>java发展史：</h2><blockquote>
+<p>起源： 20世纪90年代单片式计算机系统诞生（背景因素）</p>
+<p>SUN公司为了抢占市场先机，在1991年成立了一个由詹姆斯·高斯林（James Gosling）领导的名为“Green”的项目小组。该小组在1992年开发了一种名为“Oak”的面向对象语言（软硬件结合），因为不被硬件商看好而被搁置。1994年项目小组看到了浏览器在未来的发展前景于是决定将Oak应用于万维网。1995 年， 他们用 Oak语言研发了一种能将小程序嵌入到网页中执行的技术——Applet，与此同时Oak正式更名为 Java。</p>
+<p>演变：1996 年 1 月，SUN 公司推出了JDK 1.0。在 JDK 1.0 发布后，有很多程序员学习并运用 Java 来制作 网页，JDK 包括两大部分：开发工具和运行环境。运行环境包括核心 API、集成 API、用户界面 API、发布技术、Java 虚拟机(JVM)。JDK 1.0 的发布， 标志着 Java 成为一种独立的开发工具。</p>
+<p>JDK 1.0 的代表性技术有：Java 虚拟机、Applet、AWT 等。</p>
+<p>1997 年 2 月，SUN 公司紧接着推出了 JDK 1.1，JDK 1.1 的代表性技术有：JDBC、JavaBeans、RMI、JAR 文件格式、Java 语法中的内部类和反射。1998 年 12 月 8 日，JDK 1.2——第二代 Java 平台的企业版 J2EE 发布。</p>
+<p>1999 年 6 月，Sun 公司把 Java 体系分为三个方向：</p>
+<p>J2ME（Java 2 Micro Edition，Java 2 平台的微型版），应用于移动、无线及有限资源的环境；</p>
+<p>J2SE（Java 2 Standard Edition，Java 2 平台的标准版），应用于桌面环境；</p>
+<p>J2EE（Java 2 Enterprise Edition，Java 2 平台的企业版），应用于基于 Java 的应用服务器。</p>
+<p>随着供应商的不同，Java 的 API 也分为三大类： Java Core API： Java 核心类库； Java Optional API：对之前 API 的扩充； 特殊 API：由特殊厂商或组织提供的 API。Java 2 平台的发布，是 Java 发展过程中最重要的一个里程碑，标志着 Java 的应用开始普及。JDK 1.2 的代表性技术有：Swing、Java IDL、EJB、Java Plug-in 等，在 API 文档中，添加了 strictfp 关键字和 Collections 集合类。</p>
+<p>2005 年 6 月，在 Java One 大会上，Sun 公司发布了 Java SE 6。此时，Java 的各种版本已经更名， 已取消其中的数字 2，如 J2EE 更名为 JavaEE，J2SE 更名为 JavaSE，J2ME 更名为 JavaME。</p>
+<p>2011 年 7 月 28 日，收购 Sun 公司的 Oracle 发布了 Java SE 7，引入了二进制整数、支持字符串的 switch 语句、棱形语法、多异常捕抓、自动关闭资源的 try 语言等新特性。</p>
+<p>2014 年 3 月 18 日，Oracle 公司发布 Java SE 8，这次版本升级为 Java 带来了全新的 Lambda 表达 式、流式编程等大量新特性，这些新特性使得 Java 变得更加强大。</p>
+<p>2017 年 9 月 22 日，Oracle 公司发布 Java SE 9，这次版本升级强化了 Java 的模块化系统，让 Java 语言更轻量化，且采用了更高效、更智能的 G1 垃圾回收器，并在核心类库上进行大量更新，可进一 步简化编程。</p>
+<p>2018 年 3 月 21 日，Java SE 10 发布，Java 10 版本带来了很多新特性，其中最备受广大开发者 关注的莫过于局部变量类型推断。此外，还包垃圾收集器改善、GC 改进、性能提升、线程管控等新 特性。</p>
+<p>2018 年 9 月 26 日，Java SE 11 发布。这是 Java 大版本周期变化后的第一个长期支持版本（LTS 版本持续支持到 2026 年 9 月）。Java 11 带来了 ZGC、Http Client 等重要特性，一共包含 17 个 JEP （JDK Enhancement Proposals，JDK 增强提案）。</p>
+</blockquote>
+<h2 id="Java体系与特点"><a href="#Java体系与特点" class="headerlink" title="Java体系与特点"></a>Java体系与特点</h2><blockquote>
+<p>JavaSE ：Java Platform，Standard Edition  标准版：各应用平台的基础，桌面开发和低端商务应用的解决方案。</p>
+<p>JavaEE ：Java Platform，Enterprise Edition  企业版：以企业为环境而开发应用程序的解决方案</p>
+<p>JavaME ：Java Platform, Micro Edition  微型版：致力于消费产品 和嵌入式设备的最佳解决方案</p>
+<p>Java可以做什么？开发桌面应用程序 （银行软件、商场结算软件）；开发面向 Internet 的 web 应用程序（门户网站（工商银行）、网上商城、阿里巴巴、电子商务网站）；提供各行业的解决方案（金融，电信，电力…）；嵌入式开发（移动电话、可视电话、数字机顶盒和汽车导航系统）。</p>
+</blockquote>
+<h2 id="Java特性"><a href="#Java特性" class="headerlink" title="Java特性"></a>Java特性</h2><blockquote>
+<p>一种纯面向对象的编程语言。 </p>
+<p>一种与平台无关（跨平台）的语言。(它提供了在不同平台下运行的解释环境) </p>
+<p>一种健壮的语言，吸收了 C/C++语言的优点。 </p>
+<p>有较高的安全性。(自动回收垃圾，强制类型检查，取消指针)</p>
+</blockquote>
+<h2 id="Java跨平台原理"><a href="#Java跨平台原理" class="headerlink" title="Java跨平台原理"></a>Java跨平台原理</h2><blockquote>
+<p>Java源代码（.java文件）经过编译生成Java字节码（可跨平台，是.class文件），Java字节码通过在Java虚拟机上（JVM）运行再调动各个平台的操作系统比如Windows、Mac、Linux来实现具体操作。</p>
+</blockquote>
+<h2 id="Java技术的两种核心机制"><a href="#Java技术的两种核心机制" class="headerlink" title="Java技术的两种核心机制"></a>Java技术的两种核心机制</h2><h3 id="Java虚拟机-Java-Virtual-Machine-JVM"><a href="#Java虚拟机-Java-Virtual-Machine-JVM" class="headerlink" title="Java虚拟机(Java Virtual Machine) JVM"></a>Java虚拟机(Java Virtual Machine) JVM</h3><blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210114003630319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>JVM 可以理解成一个可运行 Java 字节码的虚拟计算机系统</p>
+<p>它有一个解释器组件，可以实现 Java 字节码和计算机操作系统之间的通信</p>
+<p>对于不同的运行平台，有不同 的 JVM。</p>
+<p>JVM 屏蔽了底层运行平台的差别，实现了“一次编译，随处运行”。</p>
+</blockquote>
+<h3 id="垃圾回收器GC"><a href="#垃圾回收器GC" class="headerlink" title="垃圾回收器GC"></a>垃圾回收器GC</h3><blockquote>
+<p>不再使用的内存空间应当进行回收-垃圾回收。 在 C/C++等语言中，由程序员负责回收无用内存。 Java 语言消除了程序员回收无用内存空间的责任： JVM 提供了一种系统线程跟踪存储空间的分配情况。并在 JVM 的空闲时，检查并释放那些可以被释放的存储空间。 垃圾回收器在 Java 程序运行过程中自动启用，程序员无法精确控制和干预。</p>
+</blockquote>
+<h2 id="Java-SE-的组成概念图"><a href="#Java-SE-的组成概念图" class="headerlink" title="Java SE 的组成概念图"></a>Java SE 的组成概念图</h2><blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210114005951395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</blockquote>
+<h2 id="JDK与JRE"><a href="#JDK与JRE" class="headerlink" title="JDK与JRE"></a>JDK与JRE</h2><blockquote>
+<p>JDK(Java Development Kits)– Java 开发工具集    JRE(Java Runtime Environment)Java 运行时环境</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010050438.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>JDK主要包含三部分，第一部分就是Java运行时环境，<strong>JVM</strong>。第二部分就是Java的<strong>基础类库</strong>，这个类库的数量还是非常可观的。第三部分就是<strong>Java的开发工具</strong>，它们都是辅助你更好的使用Java的利器。</p>
+<p>Java API (应用程序编程接口) ：Java 编译器(javac.exe)、Java 运行时解释器(java.exe)、Java 文档化化工具(javadoc.exe)及其它工具及资源</p>
+<p>JRE 的三项主要功能：加载代码：由类加载器(class loader)完成；</p>
+<p>校验代码：由字节码校验器(byte code verifier)完成；</p>
+<p>执行代码：由运行时解释器(runtime interpreter)完成。</p>
+</blockquote>
+<h2 id="Java程序"><a href="#Java程序" class="headerlink" title="Java程序"></a>Java程序</h2><blockquote>
+<p>程序一词来自生活，通常指完成某些事务的一种既定方式和过程 在日常生活中，可以将程序看成对一系列动作的执行过程的描述</p>
+<p>计算机中的程序 : 为了让计算机执行某些操作或解决某个问题而编写的一系列有序指令（即命令）的集合</p>
+<p>Java 程序的类型:  命令行程序；GUI程序； Applet程序； J2EE web应用程序</p>
+<p>Java程序开发的三个步骤：</p>
+<p>1.编写源程序（如HelloWorld.Java）；</p>
+<p>2.编译程序（经过编译器生成HelloWorld.class）；</p>
+<p>3.运行（在Java运行平台上运行）</p>
+</blockquote>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p>注释 ：java 程序有三种注释方式 :</p>
+<p>单行注释：// 注释  </p>
+<p>多行注释：/*   注释  */</p>
+<p>文档注释：/** 注释 */（该注释可将鼠标放在方法上时直接显示该方法的注释）</p>
+<p>java 代码的位置：class 必须编写在.java 文件中 （具体详情参考 HelloWorld 工程）</p>
+<p>语法规则：</p>
+<ol>
+<li>java 是严格区分大小写的</li>
+<li>java 是一种自由格式的语言</li>
+<li>代码分为结构定义语句和功能执行语句（结构定义语句后面有{}，功能执行语句的最后必须用分号结束）</li>
+</ol>
+</blockquote>
+<h2 id="掌握环境搭建"><a href="#掌握环境搭建" class="headerlink" title="掌握环境搭建"></a>掌握环境搭建</h2><h3 id="eclipse下载与安装"><a href="#eclipse下载与安装" class="headerlink" title="eclipse下载与安装"></a>eclipse下载与安装</h3><blockquote>
+<p>登录eclipse官网：<a target="_blank" rel="noopener" href="http://www.eclipse.org/">www.eclipse.org</a></p>
+<p><img src="https://img-blog.csdnimg.cn/202101140102021.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>点击下载软件包</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010336696.png#pic_center" alt="在这里插入图片描述"></p>
+<p>点击Windows x86_64,然后跳转页面点击下载即可（注：若跳转到捐款页面可不捐款退后重进即可，eclipse是完全开源免费的）</p>
+<p>下载获得压缩包后解压缩即可。</p>
+<p>然后打开eclipse.exe，设置工作区间workspace所在的文件夹，之后即可正常打开。</p>
+<p>但是到此并未结束还需要安装JDK才能使打开的eclipse.exe正常编译与运行Java程序。</p>
+</blockquote>
+<h3 id="JDK下载与安装"><a href="#JDK下载与安装" class="headerlink" title="JDK下载与安装"></a>JDK下载与安装</h3><blockquote>
+<p>登录Oracle官网：<a target="_blank" rel="noopener" href="http://www.oracle.com/">www.oracle.com</a></p>
+<p>然后点击右上角 view account来登录账户（oracle账户需要注册可能需要翻墙才能注册，此处不教学如何使用vpn翻墙）</p>
+<p>然后点击上方产品选择Java，往下滑动网页找到立即下载Java，然后点击进入页面</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010415935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>点击JDK Download即可获取JDK安装包</p>
+<p>为什么选择JDK 11？因为JDK 11是最近的Java长期支持版本</p>
+<p>然后打开按照包一路按照流程安装即可，注意安装位置初学者最好选择默认安装路径这样好记即使遗忘也容易网上查询默认安装路径来找到。</p>
+<p>到此还并没有结束，还有最后一步配置环境变量</p>
+<p>在Win10搜索栏中输入：环境变量即可打开如下界面</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010455265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>点击环境变量按钮打开界面</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010524798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>看下半部分系统变量，找到Path。此处有两种方式设置JDK的系统变量，建议采用方式二</p>
+<p>方式一： 找到Path后双击点开，然后新建一行输入JDK安装的文件件路径，默认的路径是：“C:\Program Files\Java\jdk-11.0.6\bin”，然后将该行上移到Path中所有变量的第一行（ps：如果装有多个版本的JDK则未移动到第一行会使所安装的最新版本的JDK未被系统使用，可能使用的是老版本的JDK）且当需要频繁更换JDK版本的时候需要频繁更改bin的路径不方便</p>
+<p>方式二：新建新的系统变量名字为 JAVA_HOME， 地址为JDK安装路径，例如：“C:\Program Files\Java\jdk-11.0.6”,然后在Path中新建一行：%JAVA_HOME%/bin 这样即可实现JDK的配置，同时以后更换JDK版本的时候只需更改JAVA_HOME的JDK安装路径即可，无需更改Path路径里的内容，更方便与快捷。</p>
+<p>配置好JDK后，eclipse即可正常运行</p>
+</blockquote>
+<h2 id="用eclipse建立自己第一个Java-project"><a href="#用eclipse建立自己第一个Java-project" class="headerlink" title="用eclipse建立自己第一个Java project"></a>用eclipse建立自己第一个Java project</h2><blockquote>
+<p>打开eclipse后点击上方new 选择project然后继续选择 java project即可建立java project，然后按照流程走，只需填写project 名字即可，我创立了第一个java project day01_test1,</p>
+<p><img src="https://img-blog.csdnimg.cn/202101140106032.png#pic_center" alt="在这里插入图片描述"></p>
+<p>右键src 选择new 选择 class 创建 package day01 和 Demo1.java、 Demo2.java</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010642611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>然后学习 自动关机程序 ，Demo1为自动关机程序 ， Demo2为取消自动关机设置程序</p>
+<p>同时学习了运用System.out.println（“ 输出内容”）来输出的方法，以下为程序展示图</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010703708.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010725718.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</blockquote>
+<h1 id="Java基础语法"><a href="#Java基础语法" class="headerlink" title="Java基础语法"></a>Java基础语法</h1><h2 id="二进制概述"><a href="#二进制概述" class="headerlink" title="二进制概述"></a>二进制概述</h2><blockquote>
+<p>计算机中的数据都以二进制数字保存。 </p>
+<p>二进制：逢二进一。即只有 0、1 两个值。 如：十进制的 10 在计算机内保存为二进制的 1010</p>
+<p>计算机中信息的存储单位:</p>
+<p>位（Bit）：表示一个二进制数码 0 或 1，是计算机存储处理信息的最基本的单位。</p>
+<p>字节（Byte）：一个字节由 8 个位组成。它表示作为一个完整处理单位的 8 个二进制数码。</p>
+<p>补码： 事实上，计算机内的二进制数值是以补码形式表示的。一个正数的补码和其原码的形式是相同的。</p>
+<p>负数的补码是：将该数的绝对值的二进制形式，按位取反再加 1。由此可知，二进制补码数值的最高位(最左位)是符号位：该位为 0，表示数值为正数；该位为 1，表示数值为负数。主要原因：使用补码，可以将符号位和其它位统一处理；同时，减法也可按加法来处理。另外，两个用补码表示的数相加时，如果最 高位（符号位）有进位，则进位被舍弃。</p>
+<p>二进制和十进制之间的互换:</p>
+<p>二进制数转换成十进制数  按权相加：把二进制数首先写成加权系数展开式，然后按十进制加法规则求和。</p>
+<p>十进制转换成二进制 整数部分：”除 2 取余，逆序排列”法 小数部分：”乘 2 取整，顺序排列”法  整数部分其实是辗转相除法</p>
+<p>十六进制 二进制表示法太冗长，所以在程序中一般喜欢用十六进制。 十六进制：基数为十六，逢十六进一。它用 abcdef 表示从 0-9 之上的值。 Java 中十六进制数据要以 0x 或 0X 开头。如：0x23D 十六进制转换成二进制只需将每个十六进制数字替换为相对应的四个二进制位即可。</p>
+<p>八进制 八进制：基数为八。 Java 中八进制数据要以 0 开头。如：0123 八进制转换成二进制：只需将每个八进制数字替换为相对应的三个二进制位即可。 现在的计算机系统很少用八进制的了。</p>
+</blockquote>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
+<p>变量就是系统为程序分配的一块内存单元，用来存储各种类型的数据。由于该存储单元中的数据可以发生改变，因此得名为”变量</p>
+<p>变量分类：</p>
+<p>按所属的数据类型划分： 基本数据类型变量 引用数据类型变量</p>
+<p>按被声明的位置划分： 局部变量：方法或语句块内部定义的变量 成员变量：方法外部、类的内部定义的变量</p>
+<p>特别注意：类的外面不能有变量的声明!!!</p>
+<p>由于变量记录的数据内容大小不同, 导致所需的存储单元大小不同，在 Java 语言中使用数据类型的概念加以 描述 . 字节是计算机信息技术用于计量存储容量的一种计量单位，作为一个单位来处理的一个二进制数字串，是构成 信息的一个小单位。Java 中的字节是八位的字节，即它包含八位的二进制数。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114010819430.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<p><img src="https://img-blog.csdnimg.cn/202101140108556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/2021011401093587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011000780.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011026687.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><ul>
+<li>在Java中，引用类型的变量非常类似于C/C++的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了。</li>
+<li>对象、数组都是引用数据类型。</li>
+<li>所有引用类型的默认值都是null。</li>
+<li>一个引用变量可以用来引用任何与之兼容的类型。</li>
+<li>例子：Site site = new Site(“Runoob”)。</li>
+</ul>
+<h2 id="Java-常量"><a href="#Java-常量" class="headerlink" title="Java 常量"></a>Java 常量</h2><p>常量在程序运行时是不能被修改的。</p>
+<p>在 Java 中使用 final 关键字来修饰常量，声明方式和变量类似</p>
+<p>Java语言支持一些特殊的转义字符序列。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011057856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</blockquote>
+<blockquote>
+<h2 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h2><p><strong>整型、实型（常量）、字符型数据可以混合运算。运算中，不同类型的数据先转化为同一类型，然后进行运算。</strong></p>
+<p>转换从低级到高级。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;低  ------------------------------------&gt;  高</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">byte</span>,<span class="keyword">short</span>,<span class="keyword">char</span>—&gt; <span class="keyword">int</span> —&gt; <span class="keyword">long</span>—&gt; <span class="keyword">float</span> —&gt; <span class="keyword">double</span> </span><br></pre></td></tr></table></figure>
+
+<p>数据类型转换必须满足如下规则：</p>
+<ul>
+<li><p>\1. 不能对boolean类型进行类型转换。</p>
+</li>
+<li><p>\2. 不能把对象类型转换成不相关类的对象。</p>
+</li>
+<li><p>\3. 在把容量大的类型转换为容量小的类型时必须使用强制类型转换。</p>
+</li>
+<li><p>\4. 转换过程中可能导致溢出或损失精度，例如：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">int</span> i =<span class="number">128</span>;   </span><br><span class="line">&gt;<span class="keyword">byte</span> b = (<span class="keyword">byte</span>)i;</span><br></pre></td></tr></table></figure>
+
+<p>因为 byte 类型是 8 位，最大值为127，所以当 int 强制转换为 byte 类型时，值 128 时候就会导致溢出。</p>
+<ul>
+<li>\5. 浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入，例如：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;(<span class="keyword">int</span>)<span class="number">23.7</span> == <span class="number">23</span>;        </span><br><span class="line">&gt;(<span class="keyword">int</span>)-<span class="number">45.89f</span> == -<span class="number">45</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自动类型转换-1"><a href="#自动类型转换-1" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><p>必须满足转换前的数据类型的位数要低于转换后的数据类型，例如: short数据类型的位数为16位，就可以自动转换位数为32的int类型，同样float数据类型的位数为32，可以自动转换为64位的double类型。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011146920.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><ul>
+<li>\1. 条件是转换的数据类型必须是兼容的。</li>
+<li>\2. 格式：(type)value type是要强制类型转换后的数据类型 </li>
+</ul>
+<h3 id="隐含强制类型转换"><a href="#隐含强制类型转换" class="headerlink" title="隐含强制类型转换"></a>隐含强制类型转换</h3><ul>
+<li>\1. 整数的默认类型是 int。</li>
+<li>\2. 浮点型不存在这种情况，因为在定义 float 类型时必须在数字后面跟上 F 或者 f。</li>
+</ul>
+</blockquote>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><blockquote>
+<p>概述： 方法用于封装一段特定的逻辑功能。方法的主要要素有：权限修饰符 方法名、参数列表和返回值。                </p>
+<p>格式：</p>
+<p>权限修饰符 返回值类型声明 方法名称(参数列表){</p>
+<p>方法中封装的逻辑功能;</p>
+<p>return 返回值; </p>
+<p>}</p>
+<p>权限修饰符详解</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011256892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>返回值详解 </p>
+<p>方法调用结束后可以返回一个数据，称之为返回值。 方法在声明时必须指定返回值的类型。 通过 return 语句返回，return 语句的作用在于结束方法且将数据返回。 如果方法没有返回值（即方法不需要返回数据），需将返回值类型声明为 void。</p>
+<p>注意return通常只能返回一个值，并不能返回多个值</p>
+<p>参数列表详解 </p>
+<p>方法的参数列表：在调用时传递给方法，需要被方法处理的数据。 在方法定义时，需要声明该方法所需要的参数变量。 在方法调用时，会将实际参数值传递给方法的参数变量。必须保证传递参数的类型和个数符合方法的声明。</p>
+<p>注意：Java中只有值传递！！！(如何理解？，参考以下网址中的解释：</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31203609%EF%BC%9Bhttps://blog.csdn.net/bjweimengshu/article/details/79799485">https://www.zhihu.com/question/31203609；https://blog.csdn.net/bjweimengshu/article/details/79799485</a></p>
+</blockquote>
+<h2 id="ASCII码表"><a href="#ASCII码表" class="headerlink" title="ASCII码表"></a>ASCII码表</h2><blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210114011329503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</blockquote>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>算术运算符用在数学表达式中，它们的作用和在数学中的作用一样。下表列出了所有的算术运算符。表格中的实例假设整数变量A的值为10，变量B的值为20：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011357312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>++： 如果是++变量：先对此变量加 1，再执行其他的操作。 如果是变量++：先执行当前语句的其他操作，再对此变量加 1 </p>
+<p>–： 如果- -变量：先对此变量减 1，再执行其他的操作。 如果是变量 –：先执行当前语句的其他操作，再对此变量减 1</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>赋值运算符作用是将一个值赋给一个变量，运算顺序从右到左</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011422525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>关系运算符作用是比较两边的操作数，结果总是 boolean 型的；表格中的实例整数变量A的值为10，变量B的值为20：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011441956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>逻辑运算符用于对 boolean 型结果的表达式进行运算，运算结果总是 boolean 型，假设布尔变量A为真，变量B为假</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011459460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>Java定义了位运算符，应用于整数类型(int)，长整型(long)，短整型(short)，字符型(char)，和字节型(byte)等类型。位运算符作用在所有的位上，并且按位运算。下表列出了位运算符的基本运算，假设整数变量 A 的值为 60 和变量 B 的值为 13：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011533190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="字符串连接运算符"><a href="#字符串连接运算符" class="headerlink" title="字符串连接运算符"></a>字符串连接运算符</h3><p>String s=”He” + “llo”; 结果”Hello” “+”除了可用于字符串相连接，也能将字符串与其它的数据类型相连成一个新的字符串。 如：String s=”x” + 123; 结果”x123”</p>
+<p>注：+可用于System.out.println(“汉字”+变量)来同时输出汉字和变量</p>
+<h3 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h3><p>条件运算符也被称为三元运算符。该运算符有3个操作数，并且需要判断布尔表达式的值。该运算符的主要是决定哪个值应该赋值给变量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;variable x = (expression) ? value <span class="keyword">if</span> <span class="keyword">true</span> : value <span class="keyword">if</span> <span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>当多个运算符出现在一个表达式中，谁先谁后呢？这就涉及到运算符的优先级别的问题。在一个多运算符的表达式中，运算符优先级不同会导致最后得出的结果差别甚大。下表中具有最高优先级的运算符在的表的最上面，最低优先级的在表的底部。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210114011551923.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/14/%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%B9%8BJava%E5%88%9D%E4%BD%93%E9%AA%8C/" data-id="ckjwxgcvk000108t1bdhid627" data-title="第一章之Java初体验" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/14/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">第一次博客搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/14/%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%B9%8BJava%E5%88%9D%E4%BD%93%E9%AA%8C/">第一章之Java初体验</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/14/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">第一次博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/14/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 阔阔<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
