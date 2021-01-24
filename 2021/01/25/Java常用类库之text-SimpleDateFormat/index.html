@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Java常用类库之text.SimpleDateFormat | 阔阔的小窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java中常用日期格式类SimpleDateFormat日期格式设置详解 紧接着上篇对 Date 类的复习，这期开始与 Date 和 Calendar 密切相关的 SimpleDateFormat 的常用知识和方法的详细总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常用类库之text.SimpleDateFormat">
+<meta property="og:url" content="http://example.com/2021/01/25/Java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93%E4%B9%8Btext-SimpleDateFormat/index.html">
+<meta property="og:site_name" content="阔阔的小窝">
+<meta property="og:description" content="Java中常用日期格式类SimpleDateFormat日期格式设置详解 紧接着上篇对 Date 类的复习，这期开始与 Date 和 Calendar 密切相关的 SimpleDateFormat 的常用知识和方法的详细总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210124174540967.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2021-01-24T18:42:29.000Z">
+<meta property="article:modified_time" content="2021-01-24T18:46:30.584Z">
+<meta property="article:author" content="阔阔">
+<meta property="article:tag" content="java常用类库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210124174540967.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center">
+  
+    <link rel="alternate" href="/atom.xml" title="阔阔的小窝" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">阔阔的小窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">记录编程学习之路</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Java常用类库之text-SimpleDateFormat" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/25/Java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93%E4%B9%8Btext-SimpleDateFormat/" class="article-date">
+  <time class="dt-published" datetime="2021-01-24T18:42:29.000Z" itemprop="datePublished">2021-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java常用类库之text.SimpleDateFormat
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java中常用日期格式类SimpleDateFormat日期格式设置详解"><a href="#Java中常用日期格式类SimpleDateFormat日期格式设置详解" class="headerlink" title="Java中常用日期格式类SimpleDateFormat日期格式设置详解"></a>Java中常用日期格式类SimpleDateFormat日期格式设置详解</h1><blockquote>
+<p>紧接着上篇对 Date 类的复习，这期开始与 Date 和 Calendar 密切相关的 SimpleDateFormat 的常用知识和方法的详细总结</p>
+<a id="more"></a>
+</blockquote>
+<h2 id="SimpleDateFormat类概述–JDK11API"><a href="#SimpleDateFormat类概述–JDK11API" class="headerlink" title="SimpleDateFormat类概述–JDK11API"></a>SimpleDateFormat类概述–JDK11API</h2><p>Class SimpleDateFormat<br>java.lang.Object<br>&emsp;java.text.Format<br>&emsp;&emsp;java.text.DateFormat<br>&emsp;&emsp;&emsp;java.text.SimpleDateFormat<br>实现的所有接口 &emsp;Serializable ， Cloneable<br><code>public class SimpleDateFormat extends DateFormat</code><br><br><br>SimpleDateFormat是一个用于以区域设置敏感的方式格式化和解析日期的具体类。 它允许格式化（日期→文本），解析（文本→日期）和规范化。<br>SimpleDateFormat允许您从为日期时间格式选择任何用户定义的模式开始。 不过，建议您创建一个日期-时间格式有两种getTimeInstance ， getDateInstance ，或getDateTimeInstance在DateFormat 。 这些类方法中的每一个都可以返回使用默认格式模式初始化的日期/时间格式化程序。 您可以根据需要使用applyPattern方法修改格式模式。<br><br><br><strong>日期和时间模式</strong><br>日期和时间格式由日期和时间模式字符串指定。 在日期和时间模式字符串中，从’A’到’Z’以及从’a’到’z’未加引号的字母被解释为表示日期或时间字符串的组成部分的模式字母。 可以使用单引号（ ‘ ）引用文本以避免解释。 “‘’”代表单引号。 不解释所有其他字符; 它们只是在格式化过程中被复制到输出字符串中，或者在解析过程中与输入字符串匹配。<br>定义了以下模式字母（从’A’到’Z’以及从’a’到’z’所有其他字符都是保留的）：<br><img src="https://img-blog.csdnimg.cn/20210124174540967.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjk0NjQw,size_16,color_FFFFFF,t_70#pic_center" alt="SimpleDateFormat里已定义的格式字符"></p>
+<h2 id="SimpleDateFormat里的常用方法"><a href="#SimpleDateFormat里的常用方法" class="headerlink" title="SimpleDateFormat里的常用方法"></a>SimpleDateFormat里的常用方法</h2><p>三种常用的构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat()    <span class="comment">// 构造一个 SimpleDateFormat使用默认模式和日期格式符号默认 FORMAT区域设置。 </span></span><br><span class="line">SimpleDateFormat(String pattern)  <span class="comment">// 使用给定的模式和日期格式符号构造 SimpleDateFormat 。 </span></span><br><span class="line">SimpleDateFormat(String pattern, Locale locale)  <span class="comment">// 使用给定模式和给定语言环境的默认日期格式符号构造 SimpleDateFormat 。 </span></span><br></pre></td></tr></table></figure>
+<p>两种查看日期格式的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="function"><span class="keyword">public</span> String <span class="title">toLocalizedPattern</span><span class="params">()</span></span></span><br><span class="line"><span class="function">作用：返回描述此日期格式的本地化模式字符串。 </span></span><br><span class="line"><span class="function">结果：描述此日期格式的本地化模式字符串。</span></span><br><span class="line"><span class="function">使用：</span></span><br><span class="line"><span class="function">SimpleDateFormat format </span>= <span class="keyword">new</span> SimpleDateFormat();</span><br><span class="line">System.out.println(format.toLocalizedPattern());</span><br><span class="line">打印结果：</span><br><span class="line">y/M/d ah:mm</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span><span class="function"><span class="keyword">public</span> String <span class="title">toPattern</span><span class="params">()</span></span></span><br><span class="line"><span class="function">作用：返回描述此日期格式的模式字符串。 </span></span><br><span class="line"><span class="function">结果：描述此日期格式的模式字符串。 </span></span><br><span class="line"><span class="function">使用：</span></span><br><span class="line"><span class="function">SimpleDateFormat format1 </span>=  (SimpleDateFormat) DateFormat.getDateInstance();</span><br><span class="line">System.out.println(format1.toPattern());</span><br><span class="line">打印结果：</span><br><span class="line">y年M月d日</span><br></pre></td></tr></table></figure>
+<p>两种解析字符串文本生成日期的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>parse(String source)   <span class="comment">// public Date parse(String source) throws ParseException</span></span><br><span class="line">该方法继承其父类DateFormat,作用：从给定字符串的开头解析文本以生成日期。 该方法可能不使用给定字符串的整个文本。</span><br><span class="line">参数 source - 应该解析其开头的 String </span><br><span class="line">结果 从字符串解析的 Date 。 </span><br><span class="line">异常 ParseException - 如果无法解析指定字符串的开头。</span><br><span class="line">使用：</span><br><span class="line">SimpleDateFormat format1 = (SimpleDateFormat) DateFormat.getDateInstance();</span><br><span class="line"><span class="comment">// 格式为 y年M月d日</span></span><br><span class="line">Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">String text1 = input.next();</span><br><span class="line">Date date1 = format1.parse(text1);</span><br><span class="line">System.out.println(date1);</span><br><span class="line">打印结果：</span><br><span class="line">输入  <span class="number">2020</span>年<span class="number">12</span>月<span class="number">21</span>日</span><br><span class="line">输出  Mon Dec <span class="number">21</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> CST <span class="number">2020</span></span><br><span class="line">有正确的输出，说明该输入的文本确实已经被成功解析为date1对象</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>parse(String text, ParsePosition pos)   <span class="comment">// public Date parse(String text, ParsePosition pos)</span></span><br><span class="line">作用：解析字符串中的文本以生成 Date 。 </span><br><span class="line">参数; text - A String ，其中一部分应该被解析。  pos - 具有 ParsePosition索引和错误索引信息的 ParsePosition对象。 </span><br><span class="line">结果：从字符串解析的Date 。 如果出现错误，则返回<span class="keyword">null</span>。</span><br><span class="line">异常：NullPointerException - 如果 text或 pos为空。  </span><br><span class="line"><span class="comment">//该方法尝试从pos给出的索引处开始解析文本。 </span></span><br><span class="line"><span class="comment">//如果解析成功，则在使用最后一个字符之后将索引pos更新为索引（解析不一定使用直到字符串末尾的所有字符），并返回解析的日期。 更新的pos可用于指示下一次调用此方法的起点。 </span></span><br><span class="line"><span class="comment">//如果发生错误，则不更改索引pos ，将错误索引pos设置为发生错误的字符的索引，并返回null。 </span></span><br><span class="line"><span class="comment">//此解析操作使用calendar生成Date 。 在解析之前，所有calendar的日期时间字段都是cleared ，并且calendar的日期时间字段的默认值用于任何缺少的日期时间信息。</span></span><br><span class="line"><span class="comment">// 例如，如果解析操作没有给出年份值，则解析的Date的年份值为1970， 其中 Date为GregorianCalendar 。 可能会覆盖TimeZone值，具体取决于给定的模式和text的时区值。 之前通过调用setTimeZone设置的任何TimeZone值可能需要恢复以进行进一步操作。</span></span><br><span class="line">使用：</span><br><span class="line">Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">String text2 = input.next();</span><br><span class="line">ParsePosition position = <span class="keyword">new</span> ParsePosition(<span class="number">3</span>);</span><br><span class="line">Date date2 = format1.parse(text2,position);</span><br><span class="line">System.out.println(date2);</span><br><span class="line">输入： 今天是<span class="number">2021</span>年<span class="number">1</span>月<span class="number">25</span>日</span><br><span class="line">输出： Mon Jan <span class="number">25</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> CST <span class="number">2021</span></span><br><span class="line">由此可见，date2创建成功，即输入的文本text2成功从字符串数组下标为  index= <span class="number">3</span> 实际上是第<span class="number">4</span>个字符处开始解析格式是否符合format1的 y年M月d日 的格式</span><br></pre></td></tr></table></figure>
+<h2 id="动手敲代码验证各种格式"><a href="#动手敲代码验证各种格式" class="headerlink" title="动手敲代码验证各种格式"></a>动手敲代码验证各种格式</h2><h3 id="通过DateFormat里的几种默认格式的方法"><a href="#通过DateFormat里的几种默认格式的方法" class="headerlink" title="通过DateFormat里的几种默认格式的方法"></a>通过DateFormat里的几种默认格式的方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">DateFormat里提供的几个默认格式的方法的调用：</span><br><span class="line"></span><br><span class="line">SimpleDateFormat format1 = (SimpleDateFormat) DateFormat.getDateInstance();</span><br><span class="line">SimpleDateFormat format2 = (SimpleDateFormat) DateFormat.getDateTimeInstance();</span><br><span class="line">SimpleDateFormat format3 = (SimpleDateFormat) DateFormat.getTimeInstance();</span><br><span class="line">Date date = <span class="keyword">new</span> Date();</span><br><span class="line">System.out.println(format1.format(date));</span><br><span class="line">System.out.println(format1.toPattern());</span><br><span class="line">System.out.println(format2.format(date));</span><br><span class="line">System.out.println(format1.toPattern());</span><br><span class="line">System.out.println(format3.format(date));</span><br><span class="line">System.out.println(format3.toPattern());</span><br><span class="line">打印结果：</span><br><span class="line"><span class="number">2021</span>年<span class="number">1</span>月<span class="number">24</span>日     y年M月d日  <span class="comment">//  DateFormat.getDateInstance()</span></span><br><span class="line"><span class="number">2021</span>年<span class="number">1</span>月<span class="number">24</span>日 下午<span class="number">5</span>:<span class="number">18</span>:<span class="number">20</span>  y年M月d日 ah:mm:ss   <span class="comment">//DateFormat.getDateTimeInstance();</span></span><br><span class="line">下午<span class="number">5</span>:<span class="number">18</span>:<span class="number">20</span>   ah:mm:ss  <span class="comment">// DateFormat.getTimeInstance()</span></span><br></pre></td></tr></table></figure>
+<h3 id="自定义日期格式"><a href="#自定义日期格式" class="headerlink" title="自定义日期格式"></a>自定义日期格式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat里定义的日期格式字符解释：</span><br><span class="line">y	--- 	年份</span><br><span class="line">Y	--- 	按周计算的年，与y的区别在于一年的第一周和最后一周，一般不用Y</span><br><span class="line">M	---	月份<span class="function">Month in <span class="title">year</span> <span class="params">(context sensitive)</span> </span></span><br><span class="line"><span class="function">L	---	月份Month in <span class="title">year</span> <span class="params">(standalone form)</span>  暂时不知道M与L的区别，测试两者结果一致</span></span><br><span class="line"><span class="function">w	---	一年中的周数即当前年份的第几周</span></span><br><span class="line"><span class="function">W	---	当前月中的周数即第几周</span></span><br><span class="line"><span class="function">D	---	一年中的天数即当前年的第几天</span></span><br><span class="line"><span class="function">d	---	一月中的天数即当前月份的第几天</span></span><br><span class="line"><span class="function">F 	---	是当前月份的第几周</span></span><br><span class="line"><span class="function">E	---	当前日期是星期几的名字   满足local比如当前是CHINA 输出的名字是 汉字 例如“周日”   </span></span><br><span class="line"><span class="function">u	---	当前日期在当前周的天数的序号， 取指范围 “1~7” 对应周一到周日</span></span><br><span class="line"><span class="function">a	---	按照am/pm的方式显示当前处于am还是pm,和 h 连用 变成12小时 制，输出时间范围 0~11“” 支持local 在CHINA 下显示 中文 “上午”/“下午”</span></span><br><span class="line"><span class="function">H	---	0~23  24小时制表示时间</span></span><br><span class="line"><span class="function">k	---	1~24 24小时制表示时间</span></span><br><span class="line"><span class="function">K	---	0~11 am/pm 12小时制表示时间</span></span><br><span class="line"><span class="function">h	---	1~12 am/pm 12小时制表示时间</span></span><br><span class="line"><span class="function">m	---	minute 表示分钟</span></span><br><span class="line"><span class="function">s	---	second 表示秒</span></span><br><span class="line"><span class="function">S	---	Millisecond 表示毫秒</span></span><br><span class="line"><span class="function">z	---	Time zone 表示时区</span></span><br><span class="line"><span class="function">Z	---	Time zone 表示时区</span></span><br><span class="line"><span class="function">X	---	Time zone 表示时区    Z,X,z三者的区别在于时区的算法不同，此处不深究</span></span><br><span class="line"><span class="function">G	---	Era designator  选择器，当格式中涉及到的字母数多的时候可以简写yyyy MM 为y M 等等。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">SimpleDateFormat的三种常用构造方法：</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">1.<span class="title">SimpleDateFormat</span><span class="params">()</span>    生成该方法下的默认格式日期：</span></span><br><span class="line"><span class="function">SimpleDateFormat format </span>= <span class="keyword">new</span> SimpleDateFormat();</span><br><span class="line">System.out.println(format.format(date));</span><br><span class="line">System.out.println(format.toPattern());</span><br><span class="line">打印结果： </span><br><span class="line"><span class="number">2021</span>/<span class="number">1</span>/<span class="number">24</span> 下午<span class="number">5</span>:<span class="number">58</span></span><br><span class="line">y/M/d ah:mm      <span class="comment">// 这就是 SimpleDateFormat() 方法的默认格式</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>SimpleDateFormat(String pattern)  </span><br><span class="line"><span class="comment">//构造一个 SimpleDateFormat使用给定的模式和默认的默认日期格式符号 FORMAT区域设置。 </span></span><br><span class="line">此方法生成的日期格式为自定义的 字符串格式 pattern</span><br><span class="line"></span><br><span class="line">SimpleDateFormat format4 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd ahh:mm:ss&quot;</span>);</span><br><span class="line">System.out.println(format4.format(date));</span><br><span class="line">打印结果：</span><br><span class="line"><span class="number">2021</span>-<span class="number">01</span>-<span class="number">24</span> 下午<span class="number">06</span>:<span class="number">10</span>:<span class="number">27</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>SimpleDateFormat(String pattern, Locale locale)   </span><br><span class="line"><span class="comment">//使用给定模式和给定语言环境的默认日期格式符号构造 SimpleDateFormat 。  </span></span><br><span class="line">SimpleDateFormat format6 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy年MM月dd日是该年的第D天第w周，是L月的第W周的第u天E，该天现在时间为ah时mm分ss秒&quot;</span>, Locale.CHINA);</span><br><span class="line">System.out.println(format6.format(date));</span><br><span class="line">打印结果：</span><br><span class="line"><span class="number">2021</span>年<span class="number">01</span>月<span class="number">25</span>日是该年的第<span class="number">25</span>天第<span class="number">5</span>周，是<span class="number">1</span>月的第<span class="number">5</span>周的第<span class="number">1</span>天周一，该天现在时间为上午<span class="number">12</span>时<span class="number">11</span>分<span class="number">14</span>秒</span><br><span class="line"></span><br><span class="line">此时若把 Local.CHINA 改为 Local.US , 则打印结果变为：</span><br><span class="line"><span class="number">2021</span>年<span class="number">01</span>月<span class="number">25</span>日是今年的第<span class="number">25</span>天第<span class="number">5</span>周，是<span class="number">1</span>月的第<span class="number">5</span>周的第<span class="number">1</span>天Mon，该天现在时间为AM12时<span class="number">11</span>分<span class="number">14</span>秒</span><br><span class="line">此处注意 我当前的时间为<span class="number">0</span>:<span class="number">11</span>，由此可以验证h的取指是从<span class="number">1</span>~<span class="number">12</span>下面我们单独改时间试试 H k K</span><br><span class="line"></span><br><span class="line">H:</span><br><span class="line">SimpleDateFormat format7 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;当前时间为HH时mm分ss秒&quot;</span>,Locale.CHINA);</span><br><span class="line">System.out.println(format7.format(date));</span><br><span class="line">打印结果：</span><br><span class="line">当前时间为<span class="number">00</span>时<span class="number">17</span>分<span class="number">05</span>秒</span><br><span class="line">可见 H 是 正常的<span class="number">24</span>小时制显示时间</span><br><span class="line"></span><br><span class="line">k:</span><br><span class="line">SimpleDateFormat format8 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;当前时间为kk时mm分ss秒&quot;</span>,Locale.CHINA);</span><br><span class="line">System.out.println(format8.format(date));</span><br><span class="line">打印结果：</span><br><span class="line">当前时间为<span class="number">24</span>时<span class="number">27</span>分<span class="number">01</span>秒</span><br><span class="line">可见 k 是 <span class="number">1</span>~<span class="number">24</span>的<span class="number">24</span>小时制，<span class="number">0</span>时表达为<span class="number">24</span>时</span><br><span class="line"></span><br><span class="line">K：</span><br><span class="line">SimpleDateFormat format9 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;当前时间为a KK时mm分ss秒&quot;</span>,Locale.CHINA);</span><br><span class="line">System.out.println(format9.format(date));</span><br><span class="line">打印结果：</span><br><span class="line">当前时间为上午 <span class="number">00</span>时<span class="number">32</span>分<span class="number">30</span>秒</span><br><span class="line">可见 K 是 <span class="number">0</span>~<span class="number">11</span> <span class="number">12</span>小时制， 此时需要加上 a 来判断是am还是pm/ 上午还是下午</span><br><span class="line"></span><br><span class="line">h:</span><br><span class="line">SimpleDateFormat format10 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;当前时间为a hh时mm分ss秒&quot;</span>,Locale.CHINA);</span><br><span class="line">System.out.println(format10.format(date));</span><br><span class="line">打印结果：</span><br><span class="line">当前时间为上午 <span class="number">12</span>时<span class="number">51</span>分08秒</span><br><span class="line">可见 h 是 <span class="number">1</span>~<span class="number">12</span> <span class="number">12</span>小时制，此时需要加上 a 来判断是am还是pm/ 上午还是下午</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/25/Java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93%E4%B9%8Btext-SimpleDateFormat/" data-id="ckkbhv93s0000w4t1g2899y4z" data-title="Java常用类库之text.SimpleDateFormat" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93/" rel="tag">java常用类库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/24/%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93%E4%B9%8BJava-util-Date%E8%AF%A6%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">常用类库之Java.util.Date详解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaSE%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/" rel="tag">JavaSE学习之路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93/" rel="tag">java常用类库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JavaSE%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF/" style="font-size: 10px;">JavaSE学习之路</a> <a href="/tags/java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93/" style="font-size: 20px;">java常用类库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/25/Java%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93%E4%B9%8Btext-SimpleDateFormat/">Java常用类库之text.SimpleDateFormat</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/24/%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93%E4%B9%8BJava-util-Date%E8%AF%A6%E8%A7%A3/">常用类库之Java.util.Date详解</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/14/%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%B9%8BJava%E5%88%9D%E4%BD%93%E9%AA%8C/">第一章之Java初体验</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/14/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">第一次博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/14/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 阔阔<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
